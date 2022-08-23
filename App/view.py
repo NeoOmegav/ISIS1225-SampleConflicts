@@ -26,7 +26,6 @@
 import config as cf
 import sys
 import controller
-from DISClib.ADT import list as lt
 assert cf
 
 
@@ -38,58 +37,92 @@ operación solicitada
 """
 
 
+def newController():
+    """
+    Se crea una instancia del controlador
+    """
+    control = controller.newController()
+    return control
+
+
 def printMenu():
     print("Opciones:")
     print("1- Cargar Libros")
     print("2- Cargar Tags")
-    # TODO: Modificación de Est-1 en el Lab 2
+    # TODO: Modificaciones de Est-1 en el Lab 2, agregar opcion 3
+
     print("0- Salir")
 
 
-def loadBooks():
+def loadBooks(control):
     """
     Carga los libros
     """
-    return controller.loadBooks('GoodReads/books-small.csv')
+    books = controller.loadBooks(control,
+                                 "GoodReads/books-small.csv")
+    return books
 
 
-def loadTags():
+def loadTags(control):
     """
     Carga los Tags
     """
-    return controller.loadTags('GoodReads/tags.csv')
+    tags = controller.loadTags(control,
+                               "GoodReads/tags.csv")
+    return tags
 
 
-def loadBookTags():
+def loadBooksTags(control):
     """
     Cargar los Tags de libros
     """
-    # TODO: Modificación de Est-1 en el Lab 2
+    # TODO: Modificaciones de Est-1 en el Lab 2
     pass
 
+
+def firstBook(control):
+    """
+    Devuelve el primer libro del catalogo
+    """
+    # TODO: Modificaciones de Est-1 en el Lab 2
+    pass
+
+
+def lastBook(control):
+    # TODO: Modificaciones de Est-2 en el Lab 2
+    """
+    Devuelve el último libro cargado
+    """
+    pass
+
+
+# Se crea el controlador asociado a la vista
+control = newController()
 
 """
 Menu principal
 """
 while True:
     printMenu()
-    inputs = input('Seleccione una opción para continuar\n')
+    inputs = input("Seleccione una opción para continuar\n")
     if int(inputs[0]) == 1:
         print("Cargando información de libros....")
-        books = loadBooks()
-        print('Total de libros cargados: ' + str(lt.size(books)))
+        books = loadBooks(control)
+        print("Total de libros cargados: " + str(books))
 
-        # TODO: Modificación de Est-1 en el Lab 2
+        # TODO: Modificaciones de Est-1 en el Lab 2
+        first = None
 
-
-        # TODO: Modificación de Est-2 en el Lab 2
+        # TODO: Modificaciones de Est-2 en el Lab 2
+        last = None
 
     elif int(inputs[0]) == 2:
         print("Cargando información de tags....")
-        tags = loadTags()
-        print('Total de tags cargados: ' + str(lt.size(tags)))
-    elif True:
-        # TODO: Modificación de Est-2 en el Lab 2
+        tags = loadTags(control)
+        print("Total de tags cargados: " + str(tags))
+
+    elif int(inputs[0]) == 3:
+        # TODO: Modificaciones de Est-3 en el Lab 2
         pass
 
     else:
