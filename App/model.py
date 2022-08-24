@@ -106,10 +106,9 @@ def createBookTagList(catalog):
 
 
 def addBookTag(catalog, booktag):
-    """
-    Esta funcion agrega un elemento a lista de booktags.
-    """
-    # TODO: Modificaciones de Est-1 y Est-2, Est-3 en el Lab 2
+    bts = lt.newList(datastructure='SINGLE_LINKED',
+    filename=booktag)
+    return bts
     pass
 
 

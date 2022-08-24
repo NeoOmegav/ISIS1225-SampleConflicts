@@ -77,8 +77,9 @@ def loadBooksTags(control, filename):
     """
     Carga los tags de los libros del archivo
     """
-    # TODO: Modificación de Est-1 y Est-2, Est-3 en el Lab 2
-    pass
+    booktagsfile = cf.data_dir + filename
+    return model.addBooksTags(booktagsfile)
+    
 
 
 def firstBook(control):
